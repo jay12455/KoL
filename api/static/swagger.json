@@ -1,0 +1,159 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": " KOL 數據分析 API",
+    "description": "提供多平台 KOL 數據分析和比較功能的 API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "本地開發服務器"
+    }
+  ],
+  "tags": [
+    {
+      "name": "統計數據",
+      "description": "KOL 數據統計相關接口"
+    }
+  ],
+  "paths": {
+    "/api/stats": {
+      "get": {
+        "tags": ["統計數據"],
+        "summary": "獲取 KOL 統計數據",
+        "description": "獲取所有平台的 KOL 統計數據，支持多種過濾條件",
+        "parameters": [
+          {
+            "name": "metrics",
+            "in": "query",
+            "description": "要查詢的指標，多個指標用逗號分隔",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Followers,Likes,Views"
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "description": "要查詢的平台，多個平台用逗號分隔",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "TikTok,Instagram,YouTube"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "要查詢的日期，多個日期用逗號分隔",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "2025-02-07"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功獲取數據",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Date_Collected": {
+                        "type": "string",
+                        "description": "數據收集日期"
+                      },
+                      "Platform": {
+                        "type": "string",
+                        "description": "平台名稱"
+                      },
+                      "Metric": {
+                        "type": "string",
+                        "description": "指標名稱"
+                      },
+                      "Value": {
+                        "type": "string",
+                        "description": "指標值"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "服務器錯誤",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "錯誤信息"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stats/summary": {
+      "get": {
+        "tags": ["統計數據"],
+        "summary": "獲取數據摘要",
+        "description": "獲取所有平台數據的摘要統計信息",
+        "responses": {
+          "200": {
+            "description": "成功獲取摘要",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_records": {
+                      "type": "integer",
+                      "description": "總記錄數"
+                    },
+                    "platforms": {
+                      "type": "object",
+                      "description": "各平台統計信息"
+                    },
+                    "dates": {
+                      "type": "array",
+                      "description": "可用的數據日期列表"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "服務器錯誤",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "錯誤信息"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} 
