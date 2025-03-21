@@ -9,28 +9,27 @@ KOL 數據分析平台是一個基於 Flask API 的分析工具，透過 爬蟲�
 - 🎯 根據條件篩選 KOL（互動率、粉絲數、內容類型）
 
 ## 技術架構
-- **後端框架**:
- - Flask
+- **後端框架**: Flask
 - **爬蟲技術**: 
- - Scrapy 
- - Requests
- - BeautifulSoup
- - Playwright
+  - Scrapy 
+  - Requests
+  - BeautifulSoup
+  - Playwright
 - **資料處理**: 
- - Pandas
- - NumPy
+  - Pandas
+  - NumPy
 - **API 文件**:
- - Swagger UI
+  - Swagger UI
 - **數據可視化**: 
- - Matplotlib
- - Seaborn
+  - Matplotlib
+  - Seaborn
 - **容器化與部署**: 
- - Docker
+  - Docker
 
 ## 安裝需求
-- Python 3.8+
-- Flask
-- Docker（可選，用於容器化部署）
+ - Python 3.8+
+ - Flask
+ - Docker（可選，用於容器化部署）
 
 
 ## 環境設定
