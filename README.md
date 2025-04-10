@@ -1,6 +1,6 @@
 # KOL 數據分析平台
 ## 專案簡介
-KOL 數據分析平台是一個基於 Flask API 的分析工具，透過 爬蟲技術 爬取 TikTok、YouTube、Instagram Reels 等社群平台上的 KOL 數據，並使用 Swagger UI 提供 API 文件，方便企業查詢與篩選合適的 KOL 合作對象。
+KOL 數據分析平台是一個基於 Flask  的分析工具，透過 爬蟲技術 爬取 TikTok、YouTube、Instagram Reels 等社群平台上的 KOL 數據，並使用 Swagger UI 提供 API 文件，方便企業查詢與篩選合適的 KOL 合作對象。
 
 ## 主要功能
 - 🔍 爬取 KOL 數據（粉絲數、互動率、貼文表現等）
